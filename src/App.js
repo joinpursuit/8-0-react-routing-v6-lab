@@ -1,4 +1,10 @@
 import { useState } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 
 /*
   Components
@@ -8,6 +14,7 @@ import Footer from "./components/common/Footer";
 import Home from "./components/home/Home";
 import StaffList from "./components/staff/StaffList";
 import PetsList from "./components/pets/PetsList";
+import NotFound from "./components/notFound/NotFound";
 
 /*
   Data
@@ -25,10 +32,27 @@ function App() {
 
   return (
     <div className="wrapper">
-      <Nav />
-      <Home employees={employees} owners={owners} pets={pets} />
-      <StaffList employees={employees} />
-      <PetsList pets={pets} />
+      <Router>
+        <Nav />
+
+        <Routes>
+          <Route
+            path="/"
+            element={<Home employees={employees} owners={owners} pets={pets} />}
+          ></Route>
+          <Route
+            path="staff"
+            element={<StaffList employees={employees} />}
+          ></Route>
+          <Route
+            path="pets"
+            element={<Navigate replace to="cats" pets={pets} />}
+          ></Route>
+          <Route path="pets/:type" element={<PetsList pets={pets} />}></Route>
+
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Router>
       <Footer />
     </div>
   );
