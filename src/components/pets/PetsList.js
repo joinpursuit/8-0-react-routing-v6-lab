@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import PetsListNav from "./PetsListNav";
 import Pet from "./Pet";
 import "./PetsList.css";
@@ -11,9 +13,10 @@ export const PetsList = ({ pets }) => {
     },
     [[], []]
   );
-
+console.log(pets)
   return (
     <section className="pets-wrapper">
+      
       <PetsListNav cats={cats} dogs={dogs} />
       <section className="pets-list">
         {/* All cats section */}

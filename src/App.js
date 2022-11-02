@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 
+ 
 /*
   Components
 */
@@ -8,7 +10,7 @@ import Footer from "./components/common/Footer";
 import Home from "./components/home/Home";
 import StaffList from "./components/staff/StaffList";
 import PetsList from "./components/pets/PetsList";
-
+import ErrorPage from "./error-page";
 /*
   Data
   ---------------
@@ -19,17 +21,39 @@ import { ownerData } from "./data/owners";
 import { petData } from "./data/pets";
 
 function App() {
+
+ 
   const [employees] = useState(employeeData);
   const [owners] = useState(ownerData);
   const [pets] = useState(petData);
 
   return (
     <div className="wrapper">
+      <Router >
       <Nav />
-      <Home employees={employees} owners={owners} pets={pets} />
-      <StaffList employees={employees} />
-      <PetsList pets={pets} />
+
+
+      <Routes>
+      <Route path="/" 
+      element={<Home employees={employees} owners={owners} pets={pets} />} 
+      errorElement={<ErrorPage />} 
+      />
+      <Route
+        path="/staff"
+        element={<StaffList employees={employees} />}
+        errorElement={<ErrorPage />}
+        />
+      <Route
+        path="/pets"
+        element={ <PetsList pets={pets} />}
+        errorElement={<ErrorPage />}
+        />
+        <Route path="/pets" element={<Navigate replace to="/pets/cats" />} />
+      </Routes>
+
+
       <Footer />
+      </Router>
     </div>
   );
 }
