@@ -1,5 +1,8 @@
+
+import { Navigate } from "react-router-dom";
 import "./Pet.css";
 
+{/* <Navigate to ='/pets/cats' */}
 const iconMap = {
   cat: "🐈",
   dog: "🐕",
@@ -7,6 +10,7 @@ const iconMap = {
 
 export const Pet = ({ kind, pet }) => {
   const icon = iconMap[kind];
+
   return (
     <article key={pet.id}>
       <h3>
