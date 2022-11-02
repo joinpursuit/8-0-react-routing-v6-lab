@@ -30,3 +30,8 @@ h6 {
   grid-template-rows: auto 1fr auto;
   min-height: 100vh;
 }
+
+.notFoundKitty{
+  background-image: url(../assets/Not_Found_Kitty.png);
+  background-size: cover;
+}
