@@ -1,4 +1,5 @@
 import PetsListNav from "./PetsListNav";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Pet from "./Pet";
 import "./PetsList.css";
 
@@ -16,16 +17,27 @@ export const PetsList = ({ pets }) => {
     <section className="pets-wrapper">
       <PetsListNav cats={cats} dogs={dogs} />
       <section className="pets-list">
-        {/* All cats section */}
+      <Routes>
+        <Route path="/" element= { <>
         {cats.map((cat) => (
           <Pet key={cat.id} kind="cat" pet={cat} />
         ))}
-
-        {/* All dogs section */}
         {dogs.map((dog) => (
           <Pet key={dog.id} kind="dog" pet={dog} />
-        ))}
+        ))} </> }/>
+        <Route path="/cats" element={cats.map((cat) => (
+          <Pet key={cat.id} kind="cat" pet={cat} />
+        ))}/>
+        {/* All cats section */}
+        
+
+        {/* All dogs section */}
+        <Route path="/dogs" element={dogs.map((dog) => (
+          <Pet key={dog.id} kind="dog" pet={dog} />
+        ))} />
+              </Routes>
       </section>
+
     </section>
   );
 };
