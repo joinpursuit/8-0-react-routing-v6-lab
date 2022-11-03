@@ -50,6 +50,8 @@ You will need to add routing for the page. To complete this lab, you will need t
 
 - `/`: When going to the index, you should see the `Home` component, alongside the `Nav` and `Footer`.
 - `/staff`: When going to the Staff page route, you should see the `StaffList` component, alongside the `Nav` and `Footer`.
+
+
 - `/pets`: When going to the Pets page route, you should be redirected to `/pets/cats`.
   - `/pets/cats`: When going to the Cats page route, you should see the `PetsList` component, alongside the `Nav` and `Footer`. You should only be shown cats.
   - `/pets/dogs`: When going to the Dogs page route, you should see the `PetsList` component, alongside the `Nav` and `Footer`. You should only be shown dogs.

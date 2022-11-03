@@ -1,8 +1,17 @@
+import { Link, useParams, useNavigate, Navigate } from "react-router-dom";
 import PetsListNav from "./PetsListNav";
 import Pet from "./Pet";
 import "./PetsList.css";
 
 export const PetsList = ({ pets }) => {
+  // let { kind } = useParams(); // destructuring id from data
+  // console.log(useParams);
+  // const navigate = useNavigate();
+
+  // const handleClick = () => {
+  //   navigate("/pets/cats");
+  // };
+
   const [cats, dogs] = pets.reduce(
     (acc, pet) => {
       const position = pet.kind === "Cat" ? 0 : 1;
@@ -18,7 +27,9 @@ export const PetsList = ({ pets }) => {
       <section className="pets-list">
         {/* All cats section */}
         {cats.map((cat) => (
-          <Pet key={cat.id} kind="cat" pet={cat} />
+          <Link to="/pets/cats">
+            <Pet key={cat.id} kind="cat" pet={cat} />
+          </Link>
         ))}
 
         {/* All dogs section */}
