@@ -6,6 +6,7 @@ import "./Home.css";
 export const Home = ({ employees, owners, pets }) => {
   return (
     <main>
+      
       <section className="splash-image">
         <img src={splashImage} alt="Splash." />
         <Highlights employees={employees} owners={owners} pets={pets} />

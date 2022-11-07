@@ -1,5 +1,6 @@
 import Staffer from "./Staffer";
 import "./StaffList.css";
+// import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 export const StaffList = ({ employees }) => {
   const staff = employees.map((employee) => (
