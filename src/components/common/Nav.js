@@ -1,22 +1,28 @@
+import { Link } from "react-router-dom";
 import "./Nav.css";
 
+// NOTA: Las etiquetas <a> </a> NO FUNCIONAN con el CLIENT SIDE ROUTING, ya que ejecutan el comportamiento por defecto de recarga de pagina
 function Nav() {
   return (
     <header>
       <article>
         <h1>
-          <a href="/">
+          <Link to="/">
             Northwest <span>Animal Hospital</span>
-          </a>
+          </Link>
         </h1>
       </article>
       <aside>
         <ul>
           <li>
-            <a href="/staff">All Staff</a>
+            <Link to='/staff'>
+              All Staff
+            </Link>
           </li>
           <li>
-            <a href="/pets">All Pets</a>
+            <Link to="/pets">
+              All Pets
+            </Link>
           </li>
         </ul>
       </aside>
